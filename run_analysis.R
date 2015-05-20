@@ -9,7 +9,7 @@ unzip("./data/UCI HAR Dataset.zip", exdir="./data")
 ## LOAD COMMON DATA
 features<-read.csv("./data/UCI HAR Dataset/features.txt", header=FALSE, sep="", 
 stringsAsFactors=FALSE, col.names=c("number", "feature"))
-features_col<-as.character(features$feature)
+features_col<-gsub("\\(|\\)", "", as.character(features$feature))
 
 activity_labels<-read.csv("./data/UCI HAR Dataset/activity_labels.txt", header=FALSE, sep="", 
 col.names=c("number", "activity"), stringsAsFactors=FALSE)
